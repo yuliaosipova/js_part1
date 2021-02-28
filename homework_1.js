@@ -27,4 +27,5 @@ var b = 2;
 b = a + b;
 a = b - a;
 b = b - a;
+
 alert ('a = ' + a + '; b = ' + b);

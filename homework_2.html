@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Задание 1. Почему код даёт именно такие результаты? постфиксный инкремент  префиксный инкремент
+        var a = 1, b = 1, c, d;
+        c = ++a; alert(c);           // 2 Префиксный инкремент. Сначала значение переменной a увеличивается на 1, затем выполняется присвоение переменной c значение перемменной a (а=2).
+        d = b++; alert(d);           // 1 Постсфиксный инкремент. Сначала присвоение значение, затем увеличение b на 1 (b=2).
+        c = (2+ ++a); alert(c);      // 5 Преинкремент. Переменная а увеличивается еще на 1, что дает 3. Затем переменной с присваивается значение выражения (2+3).
+        d = (2+ b++); alert(d);      // 4 Постинкремент. b=2, с=2+2, затем b = b+1. (b=3)
+        alert(a);                    // 3 Исходное значение а=1. Два преинкремента. а=3
+        alert(b);                    // 3 Исходное значение b=1. Два постинкремента. b=3
+
+        //Задание 2. Чему будет равен x в примере ниже?
+        var a = 2;
+        var x = 1 + (a *= 2); // х = 5
+
+        //Задание 3. Объявить две целочисленные переменные a и b и задать им произвольные начальные значения. Затем написать скрипт, который работает по следующему принципу:
+            // если a и b положительные, вывести их разность;
+            // если а и b отрицательные, вывести их произведение;
+            //если а и b разных знаков, вывести их сумму; ноль можно считать положительным числом.
+        
+        var a = Math.round(Math.random()*20 - 10);
+        var b = Math.round(Math.random()*20 - 10);
+        alert("a = " + a + ". b = " + b);
+
+        if (a >= 0 && b >= 0) {
+            var c = a - b;
+            alert(c);
+        }
+        else if (a < 0 && b < 0) {
+            var c = a * b;
+            alert (c);
+        }
+        else {
+            var c = a + b;
+            alert (c);
+        }
+
+        //Задание 4. Присвоить переменной а значение в промежутке [0..15]. С помощью оператора switch организовать вывод чисел от a до 15.
+
+        var a = Math.round(Math.random()*15);
+        alert("а = " + a);
+        switch(a) {
+            case 0:
+                alert(0);
+            case 1:
+                alert(1);
+            case 2:
+                alert(2);
+            case 3:
+                alert(3);
+            case 4:
+                alert(4);
+            case 5:
+                alert(5);
+            case 6:
+                alert(6);
+            case 7:
+                alert(7);
+            case 8:
+                alert(8);
+            case 9:
+                alert(9);
+            case 10:
+                alert(10);
+            case 11:
+                alert(11);
+            case 12:
+                alert(12);
+            case 13:
+                alert(13);
+            case 14:
+                alert(14);
+            case 15:
+                alert(15);
+                break;
+        }
+
+        for(a; a >= 0 && a <= 15; a++ ) {
+            alert(a);
+        }
+
+        //Задание 5. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.
+
+        function funcSum(x,y) {
+            var c = x + y;
+            return c;
+        }
+        function funcSub(x,y) {
+            var c = x - y;
+            return c;
+        }
+        function funcMult(x,y) {
+            var c = x * y;
+            return c;
+        }
+        function funcDiv(x,y) {
+            var c = x / y;
+            return c;
+        }
+
+        var arg1 = +prompt("Введите первое значение: ");
+        var arg2 = +prompt("Введите второе значение: ");
+
+        var sum = funcSum(arg1,arg2);
+        var sub = funcSub(arg1,arg2);
+        var mult = funcMult(arg1,arg2);
+        var div = funcDiv(arg1,arg2);
+
+        alert("Сумма чисел: "+ sum + ". Разность чисел: " + sub + ". Произведение чисел: " + mult + ". Частное чисел: " + div.toFixed(2) + ".");
+
+        //Задание 6. Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное значение (использовать switch).
+
+        function mathOperation(arg1, arg2, operation) {
+            var res;
+            switch(operation) {
+                case("сложение"):
+                res = funcSum(arg1, arg2);
+                break;
+
+                case("сложение"):
+                res = funcSub(arg1, arg2);
+                break;
+
+                case("умножение"):
+                res = funcMult(arg1, arg2);
+                break;
+
+                case("деление"):
+                res = funcDiv(arg1, arg2);
+                break;
+            }
+
+            return res;
+        }
+        var x = +prompt("Введите первое значение: ");
+        var y = +prompt("Введите второе значение: ");
+        var z = prompt("Введите действие (сложение/вычитание/умножение/деление): ");
+
+        var result = mathOperation(x, y, z);
+
+        alert("x = " + x + ", y = " + y);
+        alert(result);
+        
+
+        // //Задание 7. Сравнить null и 0. Попробуйте объяснить результат.
+            var a = 0; 
+            var b = null;
+
+            if(a == b) {
+                alert("null равен 0");
+            }else if(a < b){
+                alert("null больше 0");
+            }else if (a > b){
+                alert("null меньше 0");
+            }else {
+                alert("Значение null представляет отсутсвие какого-либо объекта"); 
+            }
+
+        //Задание 8. С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power(val, pow), где val – заданное число, pow – степень.
+
+        function power(val,pow) {
+            if(pow == 1) {
+                return val;
+            }
+            return val * power(val, pow-1);
+        }
+
+        var a = parseInt(prompt("Введите число: "));
+        var b = parseInt(prompt("Введите значение степени: "));
+
+        var res = power(a, b);
+        alert(res);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -60,18 +60,32 @@
         var s = 0;
         for (var item of goods) {
             s += item.price * item.count;
-            document.write(item.title + " стоит " + item.price + ". В корзине: " + item.count + " штук.")
-            return s;
+            document.write(item.title + " стоит " + item.price + ". В корзине: " + item.count + "." + "<hr>")
         }
+        return s;
     }
     alert("Сумма всех товаров : " + countBasketPrice());
 
 
     // Задание 4.*Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла.
+
+    function check(i) {
+        if(i <= 9) {
+            document.write(i + " ");
+            return true;
+        }
+            
+        return false;
+    }
+    for (var i = 0; check(i); i++) {
+    }
+
+
     // Задание 4)*Нарисовать пирамиду с помощью console.log, как показано на рисунке, только у вашей пирамиды должно быть 20 рядов, а не 5:
-// x
-// xx
-// xxx
-// xxxx
-// xxxxx
+    var str = "";
+    for(var i = 0; i < 20; i++) {
+        str += "х";
+        console.log(str);
+    }
+
 </script>

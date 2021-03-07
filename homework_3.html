@@ -1,0 +1,91 @@
+<script>
+    //Задание 1. С помощью цикла while вывести все простые числа в промежутке от 0 до 100.
+    // Решето Эратосфена
+
+    var maxNumber = 100;
+    var isComposite = [];
+    isComposite.length = maxNumber + 1;
+    isComposite.fill(false); //Заполняю массив булевыми значениями
+
+    for(var i = 4; i <=maxNumber; i += 2) { //Исключаю числа, делящиеся на 2, начиная с 4
+        isComposite[i] = true; 
+    }
+    
+    var nextPrime = 3;
+    var stopAt = Math.sqrt(maxNumber); //Если n = p * q, то p или q должны быть меньше либо равны sqrt(n). В противном случае их произведение превысит n. Проверив возможные множители до sqrt(n), найдем наименьший из них. А поделив n на этот множитель, получим второй.
+
+    while(nextPrime <= stopAt) {
+        for (var i = nextPrime*2; i <= maxNumber; i += nextPrime) { //Исключаю нечетные числа, начиная с делящихся на 3
+            isComposite[i] = true;
+        }
+        nextPrime += 2;
+        while (nextPrime <= maxNumber && isComposite[i]) { //Пропускаю итерацию чисел, исключенных ранее
+            nextPrime += 2;
+        }
+    }
+
+    var res = [];
+    for (var i = 2; i <= maxNumber; i++) { //Начиная с первого простого числа, добавляю к результирующему массиву неисключенные элементы
+        if (!isComposite[i]) {
+            res.push(i);
+        }
+    }
+
+    alert(res);
+
+    // Задание 3. С этого урока начинаем работать с функционалом интернет-магазина. Предположим, есть сущность корзины. Нужно реализовать функционал подсчета стоимости корзины в зависимости от находящихся в ней товаров.
+    // 3. Товары в корзине хранятся в массиве. Задачи:
+    // a) Организовать такой массив для хранения товаров в корзине;
+    // b) Организовать функцию countBasketPrice, которая будет считать стоимость корзины.
+
+    var goods = [
+        {
+            title: "Товар 1",
+            price: 100,
+            count: 4
+        },
+        {
+            title: "Товар 2",
+            price: 200,
+            count: 8
+        },
+        {
+            title: "Товар 3",
+            price: 300,
+            count: 6
+        }
+    ];
+
+    function countBasketPrice() {
+        var s = 0;
+        for (var item of goods) {
+            s += item.price * item.count;
+            document.write(item.title + " стоит " + item.price + ". В корзине: " + item.count + "." + "<hr>")
+        }
+        return s;
+    }
+    alert("Сумма всех товаров : " + countBasketPrice());
+
+
+    // Задание 4.*Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла.
+
+    function check(i) {
+        if(i <= 9) {
+            document.write(i + " ");
+            return true;
+        }
+            
+        return false;
+    }
+    for (var i = 0; check(i); i++) {
+    }
+
+
+    // Задание 4)*Нарисовать пирамиду с помощью console.log, как показано на рисунке, только у вашей пирамиды должно быть 20 рядов, а не 5:
+    var str = "";
+    for(var i = 0; i < 20; i++) {
+        str += "х";
+        console.log(str);
+    }
+
+</script>

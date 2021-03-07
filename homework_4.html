@@ -1,0 +1,18 @@
+<script>
+    //Задание 1
+    function numberConverter(n) {
+        if (isNaN(n) || n > 999 || n < 0) {
+            console.log ("Число должно быть не более 999 и не менее 0!");
+            return null;
+        }
+        
+        return {hundreds : Math.floor(n / 100), dozens : Math.floor((n % 100) / 10), units : n % 10}
+        
+    }
+    var number = parseInt(prompt("Введите число от 0 до 999"));
+
+    var obj = numberConverter(number);
+
+    alert("Сотни: " + obj.hundreds + ". Десятки: " + obj.dozens + ". Единицы: " + obj.units + "."  );
+
+</script>

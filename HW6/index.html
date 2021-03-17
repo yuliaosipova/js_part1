@@ -6,16 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homework 6</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="homework_6.js"></script>
+    
 </head>
 <body>
     <div class="container">
         <h1>Задание 1</h1>
-        <div class="wrap">
-            <img src="img/img_1_mini.jpg" alt="photo" id="img">
-            <img src="img/img_2_mini.jpg" alt="photo" id="img">
-            <img src="img/img_3_mini.jpg" alt="photo" id="img">
+        <div class="small">
+            <img id="img1" src="img\small\img1.jpg" alt="photo" onclick="f(this)">
+            <img id="img2" src="img\small\img2.jpg" alt="photo" onclick="f(this)">
+            <img id="img3" src="img\small\img3.jpg" alt="photo" onclick="f(this)">
         </div>
+        <div class="big">
+            <img id="imgBig" src="" onerror ="imgError()" width="700">
+        </div>
+        <script src="homework_6.js"></script>
     </div>
 </body>
 </html>

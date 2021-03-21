@@ -1,0 +1,17 @@
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+.small {
+    display: flex;
+    justify-content: space-around;
+}
+.big {
+    display: flex;
+    justify-content: center;
+    padding-top: 16px;
+}
+img {
+    display: block;
+}
